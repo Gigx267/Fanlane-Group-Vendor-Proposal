@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Executive Digital Proposal | Fanlane Ecosystem — Arcade Studios</title>
+  
+  <!-- Preload critical font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&amp;display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-main: #030303;
+      --bg-card: rgba(10, 10, 12, 0.4);
+      --border-color: rgba(255, 255, 255, 0.04);
+      --border-hover: rgba(255, 255, 255, 0.12);
+      --text-primary: #f5f5f7;
+      --text-muted: #7e7e86;
+      --accent: #d4af37;
+      --accent-dim: rgba(212, 175, 55, 0.05);
+      --tech-blue: #0071e3;
+      --tech-blue-dim: rgba(0, 113, 227, 0.08);
+      --grid-color: rgba(255, 255, 255, 0.015);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg-main);
+      background-image: 
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+      background-size: 40px 40px;
+      background-position: center top;
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding: 6rem 1.5rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .container::before {
+      content: "";
+      position: absolute;
+      top: -4rem;
+      left: 5%;
+      right: 5%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-hover), transparent);
+    }
+
+    h1 {
+      font-size: clamp(2.25rem, 5vw, 2.75rem);
+      font-weight: 500;
+      letter-spacing: -0.04em;
+      line-height: 1.15;
+      color: #ffffff;
+      margin-bottom: 1.25rem;
+    }
+
+    h1 span {
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 760px;
+      margin-bottom: 4.5rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .status-container {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-primary);
+      margin-bottom: 2rem;
+    }
+
+    .status-pulse {
+      width: 6px;
+      height: 6px;
+      background: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #10b981;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .info-grid {
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 2.5rem 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2rem 1.5rem;
+      margin-bottom: 6rem;
+      background: linear-gradient(180deg, rgba(255,255,255,0.01) 0%, transparent 100%);
+    }
+
+    .info-item {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .info-item strong {
+      display: block;
+      font-size: 0.95rem;
+      color: #ffffff;
+      margin-top: 0.5rem;
+      text-transform: none;
+      letter-spacing: -0.01em;
+      font-weight: 400;
+    }
+
+    .section {
+      margin-bottom: 6rem;
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-title::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 14px;
+      background: var(--tech-blue);
+      border-radius: 2px;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+      max-width: 800px;
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 2.5rem 0;
+    }
+
+    .card-luxury {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 0.75rem;
+      padding: 2.25rem;
+      backdrop-filter: blur(12px);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .card-luxury:hover {
+      border-color: var(--border-hover);
+      background-color: rgba(255, 255, 255, 0.02);
+      transform: translateY(-3px);
+    }
+
+    .card-luxury h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #ffffff;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.02em;
+    }
+
+    .entity-tag {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      display: inline-block;
+      font-weight: 500;
+    }
+
+    .card-luxury:hover .entity-tag {
+      border-color: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+    }
+
+    .card-luxury p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .callout-box {
+      border-left: 3px solid var(--tech-blue);
+      background: var(--tech-blue-dim);
+      padding: 1.75rem 2rem;
+      border-radius: 0 0.75rem 0.75rem 0;
+      margin: 3.5rem 0;
+      font-size: 0.95rem;
+      color: #d1d1d6;
+    }
+
+    .callout-box strong {
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .timeline-flex {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+
+    .timeline-step {
+      border: 1px solid var(--border-color);
+      border-radius: 0.75rem;
+      padding: 1.75rem 1.5rem;
+      background: var(--bg-card);
+      position: relative;
+    }
+
+    .timeline-step .week {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-family: monospace;
+    }
+
+    .timeline-step h4 {
+      font-size: 1rem;
+      color: #ffffff;
+      margin: 0.5rem 0;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    .timeline-step p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .list-editorial {
+      list-style: none;
+    }
+
+    .list-editorial li {
+      position: relative;
+      padding-left: 1.75rem;
+      margin-bottom: 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .list-editorial li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--tech-blue);
+      font-size: 1.2rem;
+      top: -2px;
+    }
+
+    .list-editorial strong {
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .action-layer {
+      margin: 5rem 0 3rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn {
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.85rem 2rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      min-width: 160px;
+    }
+
+    .btn-primary {
+      background: #ffffff;
+      color: var(--bg-main);
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: #f5f5f7;
+      transform: scale(0.985);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.03);
+      border-color: var(--border-hover);
+      transform: scale(0.985);
+    }
+
+    .footer-note {
+      border-top: 1px solid var(--border-color);
+      margin-top: 6rem;
+      padding-top: 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* Print optimizations */
+    @media print {
+      body { padding: 2rem; background: white; color: black; }
+      .container::before, .status-container, .btn-group { display: none; }
+      .card-luxury, .timeline-step { border-color: #ddd; background: white; }
+    }
+
+    @media (max-width: 850px) {
+      body { padding: 4rem 1rem; }
+      .bento-grid, .timeline-flex { grid-template-columns: 1fr; }
+      .btn-group { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  
+  <header>
+    <div class="status-container">
+      <div class="status-pulse"></div>
+      <span>LIVE PROPOSAL</span>
+    </div>
+    <h1>Proposal Document <span>/ Fanlane Ecosystem</span></h1>
+    <p class="hero-sub">A cohesive proposal engineered to design, develop, secure, and scale the unified digital presence for Fanlane &amp; Company and its strategic entities.</p>
+  </header>
+
+  <div class="info-grid">
+    <div class="info-item">Project Scope<strong>Fanlane &amp; Entities</strong></div>
+    <div class="info-item">Prepared By<strong>Arcade Studios</strong></div>
+    <div class="info-item">Date Issued<strong>June 2026</strong></div>
+    <div class="info-item">Architecture<strong>4 Properties</strong></div>
+  </div>
+
+  <!-- Executive Summary -->
+  <section class="section">
+    <h2 class="section-title">Strategic Overview</h2>
+    <p class="section-sub">Fanlane requires an institutional-grade digital footprint comprising four distinct web properties. Our methodology ensures each asset communicates its independent value proposition while preserving structural and aesthetic synergy across the holding ecosystem. Arcade Studios delivers an end-to-end realization framework: bespoke design, robust engineering, security compliance, and comprehensive knowledge transfer.</p>
+    
+    <div class="callout-box">
+      <strong>Operational Guarantee:</strong> Following the provision of primary core brand assets, Arcade Studios provides turnkey implementation encompassing custom content management architecture (CMS), proactive deployment monitoring, and dedicated post-launch support layers to ensure long-term stability.
+    </div>
+  </section>
+
+  <!-- Ecosystem -->
+  <section class="section">
+    <h2 class="section-title">Ecosystem Blueprint</h2>
+    <p class="section-sub">Four tailored platforms engineered for specialized market positioning and audience engagement.</p>
+    
+    <div class="bento-grid">
+      <div class="card-luxury">
+        <span class="entity-tag">Holding &amp; Venture Portal</span>
+        <h3>Fanlane &amp; Company</h3>
+        <p>The centralized anchor. Architected to highlight corporate investment portfolios, institutional research, executive leadership profiles, and enterprise talent acquisition pipelines.</p>
+      </div>
+      
+      <div class="card-luxury">
+        <span class="entity-tag">Enterprise Technology</span>
+        <h3>Twinpine</h3>
+        <p>A B2B service gateway outlining enterprise cloud deployments, artificial intelligence integrations, cyber defense parameters, and dedicated retainer-based tech support models.</p>
+      </div>
+      
+      <div class="card-luxury">
+        <span class="entity-tag">Infrastructure &amp; Capital</span>
+        <h3>Atlas Digital Infrastructure</h3>
+        <p>A pre-launch presentation platform modeling the future of AI-optimized data center frameworks, development phases, and institutional investment engagement pathways.</p>
+      </div>
+      
+      <div class="card-luxury">
+        <span class="entity-tag">Regulated Architecture</span>
+        <h3>CignaIT</h3>
+        <p>A high-security data exchange showcase demonstrating secure automated KYC platforms, systemic fraud mitigation systems, and compliance infrastructure for public and private banking institutions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Execution -->
+  <section class="section">
+    <h2 class="section-title">Execution Framework</h2>
+    <p class="section-sub">Our delivery cycle utilizes iterative design phases and decoupled code deployment to eliminate risk and ensure project alignment.</p>
+    
+    <div class="timeline-flex">
+      <div class="timeline-step">
+        <span class="week">// STEP_01</span>
+        <h4>Discovery</h4>
+        <p>Information mapping, interface assets design, and architecture ecosystem alignment.</p>
+      </div>
+      
+      <div class="timeline-step">
+        <span class="week">// STEP_02</span>
+        <h4>Engineering</h4>
+        <p>Production code infrastructure, CMS structuring, and localized security hardening.</p>
+      </div>
+
+      <div class="timeline-step">
+        <span class="week">// STEP_03</span>
+        <h4>Integration</h4>
+        <p>Data exchanges, pipelines setup, cloud deployments, and AI framework syncs.</p>
+      </div>
+
+      <div class="timeline-step">
+        <span class="week">// STEP_04</span>
+        <h4>Deployment</h4>
+        <p>Production launch execution, asset infrastructure handover, and workflow training.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical -->
+  <section class="section">
+    <h2 class="section-title">Technical Specification &amp; Performance Architecture</h2>
+    <p class="section-sub">Behind each interface sits an optimized stack built for visibility, administrative simplicity, and threat mitigation.</p>
+    <ul class="list-editorial">
+      <li><strong>Decoupled Content Management Panels:</strong> Intuitive administrative panels engineered for rapid internal updates, structured logging, and permission management without code dependencies.</li>
+      <li><strong>Enterprise Cloud Topology:</strong> Production deployments built on secure server architectures (AWS / Google Cloud) featuring continuous edge caching via Content Delivery Networks (CDNs).</li>
+      <li><strong>Responsive Mechanics:</strong> Smooth layouts engineered using flexible CSS/JS architectures to guarantee fluid device interoperability across complex displays.</li>
+      <li><strong>Hardened Security Vectors:</strong> Automatic SSL/TLS handshakes, rigid firewalls, and isolated database architectures designed to minimize surface-level vulnerabilities.</li>
+    </ul>
+  </section>
+
+  
+
+  <footer class="footer-note">
+    <div>
+      <p><strong>Arcade Studios Engineering Inc.</strong></p>
+      <p style="margin-top: 0.2rem; color: var(--text-muted)">Digital Architecture Division</p>
+    </div>
+    <div>
+      <p style="font-family: monospace; letter-spacing: 0.05em;">© 2026 Nigeria</p>
+    </div>
+  </footer>
+</div>
+
+<script>
+  // Button handlers
+  document.getElementById('pdfBtn').addEventListener('click', (e) => {
+    e.preventDefault();
+    alert("📄 PDF Export Ready:\n\nUse your browser's Print function (Ctrl/Cmd + P) → Save as PDF.\nThe layout is optimized for clean corporate printing.");
+  });
+
+  document.getElementById('callBtn').addEventListener('click', (e) => {
+    e.preventDefault();
+    alert("📅 Discovery Call:\n\nPlease email proposals@arcadestudios.io with your preferred availability.\nA secure scheduling link will be sent within 24 hours.");
+  });
+</script>
+</body>
+</html>
